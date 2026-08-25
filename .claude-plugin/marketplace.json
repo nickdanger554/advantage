@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "advantage",
+  "description": "Public StoreAdOps plugins for Claude Code.",
+  "owner": {
+    "name": "StoreAdOps"
+  },
+  "plugins": [
+    {
+      "name": "storeadops",
+      "source": "./storeadops",
+      "description": "Analyze advertising performance and prepare reviewable, paused campaign drafts through StoreAdOps.",
+      "version": "0.5.0",
+      "author": {
+        "name": "StoreAdOps"
+      },
+      "homepage": "https://app.storeadops.ai"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "storeadops-agent-skill/1.0",
+  "name": "growth-action-graphs",
+  "version": "0.1.0",
+  "authority": "none",
+  "tested_against": {
+    "server_contract": "storeadops-mcp@1.0",
+    "capability_packs": ["full-v1", "growth-v1", "operator-v1"]
+  },
+  "required_tools": [
+    "evaluate_action_set",
+    "execute_validated_action_graph",
+    "get_action_capability",
+    "get_growth_context",
+    "record_action_presentation",
+    "search_action_capabilities",
+    "validate_change_set"
+  ],
+  "resources": [
+    "storeadops://growth/guides/action-graphs/1.0",
+    "storeadops://growth/guides/examples/1.0",
+    "storeadops://growth/guides/manifest/1.0"
+  ],
+  "source": {
+    "repository": "nickdanger554/advantage-mcp",
+    "path": "skills/growth-action-graphs",
+    "commit": "323b0758534e27df54a378f362fd73c56cc2c65e"
+  }
+}

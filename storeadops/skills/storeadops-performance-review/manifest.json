@@ -1,0 +1,18 @@
+{
+  "schema_version": "storeadops-agent-skill/1.0",
+  "name": "storeadops-performance-review",
+  "version": "0.1.0",
+  "authority": "none",
+  "tested_against": {
+    "server_contract": "storeadops-mcp@1.0",
+    "capability_packs": ["analyst-v1", "full-v1", "operator-v1"]
+  },
+  "required_tools": [
+    "get_connections_status",
+    "get_tool_catalog",
+    "list_campaigns",
+    "list_connected_accounts",
+    "list_meta_campaigns"
+  ],
+  "resources": []
+}

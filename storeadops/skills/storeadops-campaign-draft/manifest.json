@@ -1,0 +1,28 @@
+{
+  "schema_version": "storeadops-agent-skill/1.0",
+  "name": "storeadops-campaign-draft",
+  "version": "0.1.0",
+  "authority": "none",
+  "tested_against": {
+    "server_contract": "storeadops-mcp@1.0",
+    "capability_packs": ["full-v1", "operator-v1"]
+  },
+  "required_tools": [
+    "create_demandgen_campaign",
+    "create_display_campaign",
+    "create_meta_campaign",
+    "create_meta_carousel_campaign",
+    "create_meta_image_campaign",
+    "create_meta_video_campaign",
+    "create_pmax_campaign",
+    "create_search_campaign",
+    "create_shopping_campaign",
+    "create_youtube_campaign",
+    "get_connections_status",
+    "get_tool_catalog",
+    "list_campaigns",
+    "list_connected_accounts",
+    "list_meta_campaigns"
+  ],
+  "resources": []
+}
