@@ -1,9 +1,10 @@
 {
   "name": "storeadops",
-  "version": "0.5.0",
-  "description": "Analyze connected advertising performance and prepare reviewable, paused campaign drafts through StoreAdOps.",
+  "version": "0.5.1",
+  "description": "Read connected Google Ads, Meta Ads, and Shopify data and perform explicit, user-confirmed advertising and commerce operations through StoreAdOps.",
   "author": {
     "name": "StoreAdOps",
+    "email": "support@storeadops.ai",
     "url": "https://app.storeadops.ai"
   },
   "homepage": "https://app.storeadops.ai",
@@ -11,8 +12,12 @@
   "keywords": [
     "advertising",
     "campaigns",
+    "commerce",
+    "google-ads",
+    "meta-ads",
     "performance",
     "reporting",
+    "shopify",
     "storeadops"
   ],
   "skills": "./skills/",
