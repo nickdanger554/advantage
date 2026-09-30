@@ -2,7 +2,7 @@
   "mcpServers": {
     "storeadops": {
       "type": "http",
-      "url": "https://app.storeadops.ai/mcp"
+      "url": "https://app.storeadops.ai/mcp/packs/ads-v3"
     }
   }
 }

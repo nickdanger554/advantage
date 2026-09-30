@@ -1,19 +1,18 @@
 {
   "schema_version": "storeadops-agent-skill/1.0",
   "name": "storeadops-daily-profit-brief",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "authority": "none",
   "tested_against": {
-    "server_contract": "storeadops-mcp@1.0",
-    "capability_packs": ["analyst-v1", "full-v1", "operator-v1"]
+    "server_contract": "storeadops-mcp@3.0",
+    "capability_packs": ["ads-v3"]
   },
   "required_tools": [
+    "get_capabilities",
     "get_connections_status",
-    "get_shopify_orders_summary",
-    "get_shopify_product_margins",
-    "list_campaigns",
-    "list_connected_accounts",
-    "list_meta_campaigns"
+    "get_merchant_profile",
+    "get_report",
+    "query"
   ],
   "resources": []
 }

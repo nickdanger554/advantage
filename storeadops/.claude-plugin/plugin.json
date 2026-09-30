@@ -1,7 +1,7 @@
 {
   "name": "storeadops",
-  "version": "0.5.1",
-  "description": "Read connected Google Ads, Meta Ads, and Shopify data and perform explicit, user-confirmed advertising and commerce operations through StoreAdOps.",
+  "version": "0.6.0",
+  "description": "Review connected advertising data and prepare exact, paused change previews through StoreAdOps ads-v3. Google Ads, Meta, Microsoft Advertising, TikTok, and OpenAI Ads operations depend on account readiness; Shopify access is read-only.",
   "author": {
     "name": "StoreAdOps",
     "email": "support@storeadops.ai",
@@ -15,6 +15,9 @@
     "commerce",
     "google-ads",
     "meta-ads",
+    "microsoft-advertising",
+    "tiktok",
+    "openai-ads",
     "performance",
     "reporting",
     "shopify",
