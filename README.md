@@ -59,22 +59,26 @@ Data gaps are explicit. Missing revenue, costs, margin, attribution, or currency
 must not be filled with invented figures, and an empty account is not an error
 or proof of production readiness.
 
-## Version 0.6.0 scope
+## Version 0.6.1 scope
 
-This candidate migrates the declared endpoint and four core skills to ads-v3.
+This package migrates the declared endpoint and four core skills to ads-v3.
 The old growth-action-graphs workflow requires V1-only tools and is not bundled
 in the ads-v3 plugin. Its source is retained under `legacy/growth-action-graphs`
 for reference, not loaded as a skill, and not claimed as an ads-v3 capability.
 No server or provider capability is implemented or removed by this package.
 Do not use legacy graph grants or tool names as substitutes for ads-v3 plans.
 
-This branch is a validation candidate, not a tagged release. The default branch
-and existing directory submission remain on 0.5.1 until fresh-install, OAuth,
-and read-only host checks pass and the owner approves promotion.
+The four workflows share the same canonical guidance as the current StoreAdOps
+OpenAI package, with a Claude-specific namespacing overlay. They use exact
+discovered operation names and request envelopes, bounded reads, explicit
+permission for provider report jobs, and in-chat confirmation of an exact change
+preview. Missing data, stale account references, unsupported settings and
+uncertain write outcomes are handled explicitly.
 
-To test this candidate in an isolated Claude configuration, add
-`https://github.com/nickdanger554/advantage.git#codex/claude-ads-v3-review`
-as the marketplace source before installing `storeadops@advantage`.
+GitHub availability, directory acceptance, OAuth connectivity and successful
+Claude conversations are separate checks. Package validation does not establish
+marketplace approval or conversation-level E2E certification. See
+[release validation and limitations](docs/releases/0.6.1.md).
 
 ## Data and network access
 
