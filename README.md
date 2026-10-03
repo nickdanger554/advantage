@@ -64,7 +64,9 @@ or proof of production readiness.
 Version 0.6.3 tightens reporting guidance in the daily brief and performance
 review skills: use normalized metric names, explicitly match account-level
 dimensions, and keep unknown timezones or empty-source normalized totals from
-being presented as fully verified exact-period coverage. It changes no tools,
+being presented as fully verified exact-period coverage. Embedded rolling trends
+keep their own date coverage instead of inheriting the report's fixed dates.
+It changes no tools,
 endpoints, permissions or execution behavior. Host acceptance must be verified
 separately from package validation.
 
