@@ -59,7 +59,12 @@ Data gaps are explicit. Missing revenue, costs, margin, attribution, or currency
 must not be filled with invented figures, and an empty account is not an error
 or proof of production readiness.
 
-## Version 0.6.1 scope
+## Version 0.6.2 scope
+
+Version 0.6.2 adds the website-matching plugin icon, the owner-approved MIT
+license for the public `storeadops/` package only, and Claude web sign-in
+guidance. Its four generated skills and ads-v3 endpoint are unchanged from
+0.6.1. Private server code and account/provider data are not licensed here.
 
 This package migrates the declared endpoint and four core skills to ads-v3.
 The old growth-action-graphs workflow requires V1-only tools and is not bundled
