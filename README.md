@@ -59,6 +59,15 @@ Data gaps are explicit. Missing revenue, costs, margin, attribution, or currency
 must not be filled with invented figures, and an empty account is not an error
 or proof of production readiness.
 
+## Version 0.6.3 scope
+
+Version 0.6.3 tightens reporting guidance in the daily brief and performance
+review skills: use normalized metric names, explicitly match account-level
+dimensions, and keep unknown timezones or empty-source normalized totals from
+being presented as fully verified exact-period coverage. It changes no tools,
+endpoints, permissions or execution behavior. Host acceptance must be verified
+separately from package validation.
+
 ## Version 0.6.2 scope
 
 Version 0.6.2 adds the website-matching plugin icon, the owner-approved MIT
@@ -73,8 +82,9 @@ for reference, not loaded as a skill, and not claimed as an ads-v3 capability.
 No server or provider capability is implemented or removed by this package.
 Do not use legacy graph grants or tool names as substitutes for ads-v3 plans.
 
-The four workflows share the same canonical guidance as the current StoreAdOps
-OpenAI package, with a Claude-specific namespacing overlay. They use exact
+The four workflows come from the portable canonical skill sources, with a
+Claude-specific namespacing overlay. Version 0.6.3 adds the reporting corrections
+above; it does not replace or amend the previously submitted OpenAI ZIP. They use exact
 discovered operation names and request envelopes, bounded reads, explicit
 permission for provider report jobs, and in-chat confirmation of an exact change
 preview. Missing data, stale account references, unsupported settings and
