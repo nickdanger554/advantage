@@ -1,12 +1,13 @@
-# StoreAdOps for Claude Code
+# StoreAdOps for Claude
 
-StoreAdOps connects Claude Code to the ten-tool production ads-v3 interface.
+StoreAdOps connects Claude to the ten-tool production ads-v3 interface.
 Google Ads, Meta, Microsoft Advertising, TikTok, and OpenAI Ads operations are
 subject to account-specific capability, permission and feature gates. Shopify
 commerce access is read-only. The four included skills cover onboarding,
 performance review, daily briefs with explicit data gaps, and campaign changes.
 
-After installation, open `/mcp` and complete browser OAuth. Start with
+In Claude chat, enable the StoreAdOps connector and complete browser OAuth.
+In Claude Code, after installation, open `/mcp` and complete browser OAuth. Start with
 `/storeadops:storeadops-get-started` to verify connections and select the
 intended account before requesting analysis or a campaign draft.
 
@@ -28,6 +29,12 @@ and its own preview and confirmation. Never retry ambiguous writes blindly.
 
 Legacy growth action graphs are not exposed by this ten-tool package. Report
 unsupported operations honestly instead of inventing tools or outcomes.
+
+## Package license
+
+The files in this public plugin directory are distributed under the
+[MIT License](LICENSE). This license does not cover the private StoreAdOps
+server, account data, provider data, or access to the hosted service.
 
 - [StoreAdOps](https://app.storeadops.ai)
 - [Privacy policy](https://app.storeadops.ai/privacy)
