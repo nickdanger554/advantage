@@ -59,6 +59,22 @@ Data gaps are explicit. Missing revenue, costs, margin, attribution, or currency
 must not be filled with invented figures, and an empty account is not an error
 or proof of production readiness.
 
+## Version 0.6.4 scope
+
+Version 0.6.4 follows the reporting-coverage corrections in the ads-v3 server:
+use date-filtered exact Shopify order reports when discovered, keep exact counts
+separate from sampled revenue, distinguish complete rows from a completed day,
+and preserve each provider's timezone and timestamp boundaries. Microsoft report
+approval covers a disclosed account/date/type/job-count batch, not unlimited jobs.
+Onboarding can request the bounded `account.verify` read without treating stored
+connection metadata as a failed connection or live metadata access as write access.
+
+These are three canonical skill updates; the campaign-draft skill, ten tools,
+MCP URL, permissions, logo and license are unchanged. New operations are always
+discovered before use; an older server produces an explicit coverage limitation.
+The submitted OpenAI package is unchanged. See
+[release validation and rollback](docs/releases/0.6.4.md).
+
 ## Version 0.6.3 scope
 
 Version 0.6.3 tightens reporting guidance in the daily brief and performance
