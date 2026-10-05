@@ -59,6 +59,18 @@ Data gaps are explicit. Missing revenue, costs, margin, attribution, or currency
 must not be filled with invented figures, and an empty account is not an error
 or proof of production readiness.
 
+## Version 0.6.5 scope
+
+Version 0.6.5 declares the existing public privacy policy explicitly in the
+plugin manifest's `privacyPolicyUrl`, addressing the directory's
+`PRIVACY_URL_MISSING` finding. The policy was already linked in both READMEs;
+its address and content are unchanged. The four skills, ten-tool ads-v3 endpoint,
+permissions, logo, license and submitted OpenAI package are unchanged.
+See [release validation and rollback](docs/releases/0.6.5.md).
+
+Run `python3 -m unittest discover -s tests -v` to check the public package's
+privacy metadata, README fallback, marketplace version and MCP connection.
+
 ## Version 0.6.4 scope
 
 Version 0.6.4 follows the reporting-coverage corrections in the ads-v3 server:
