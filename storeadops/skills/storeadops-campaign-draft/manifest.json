@@ -1,19 +1,29 @@
 {
   "schema_version": "storeadops-agent-skill/1.0",
   "name": "storeadops-campaign-draft",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "authority": "none",
   "tested_against": {
     "server_contract": "storeadops-mcp@3.0",
-    "capability_packs": ["ads-v3"]
+    "capability_packs": [
+      "ads-v3"
+    ]
   },
   "required_tools": [
-    "execute_change",
+    "create_google_campaign",
+    "create_meta_campaign",
+    "create_microsoft_campaign",
+    "create_openai_campaign",
+    "create_tiktok_campaign",
+    "get_campaigns",
     "get_capabilities",
     "get_change_status",
     "get_connections_status",
-    "prepare_change",
-    "query"
+    "prepare_create_google_campaign",
+    "prepare_create_meta_campaign",
+    "prepare_create_microsoft_campaign",
+    "prepare_create_openai_campaign",
+    "prepare_create_tiktok_campaign"
   ],
   "resources": []
 }

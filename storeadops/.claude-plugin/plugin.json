@@ -1,6 +1,6 @@
 {
   "name": "storeadops",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "license": "MIT",
   "description": "Review connected advertising data and prepare exact, paused change previews through StoreAdOps ads-v3. Google Ads, Meta, Microsoft Advertising, TikTok, and OpenAI Ads operations depend on account readiness; Shopify access is read-only.",
   "author": {
@@ -9,6 +9,7 @@
     "url": "https://app.storeadops.ai"
   },
   "homepage": "https://app.storeadops.ai",
+  "privacyPolicyUrl": "https://app.storeadops.ai/privacy",
   "repository": "https://github.com/nickdanger554/advantage",
   "keywords": [
     "advertising",
