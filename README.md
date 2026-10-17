@@ -2,17 +2,13 @@
 
 Public Claude Code plugin marketplace for StoreAdOps.
 
-The `storeadops` plugin connects Claude Code to the production StoreAdOps MCP
-service through the separately versioned, ten-tool ads-v3 interface. Google
-Ads, Meta, Microsoft Advertising, TikTok, and OpenAI Ads operations are available
-only when the selected account, permissions, feature gates, and campaign type
-support them. Shopify commerce access is read-only. Four portable workflows
-cover connection setup, performance review, daily briefs, and exact campaign
-change previews. No provider is considered ready merely because it is listed.
+The `storeadops` plugin connects Claude Code to production StoreAdOps ads-v3
+through named, typed tools. Four skills cover account setup, performance reviews,
+daily profit briefs and exact campaign-change previews. Google Ads, Meta,
+Microsoft Advertising, TikTok and OpenAI Ads depend on selected-account,
+permission, feature and campaign-type gates. Shopify commerce is read-only.
 
-## Install
-
-In Claude Code, run:
+## Install and update
 
 ```text
 /plugin marketplace add nickdanger554/advantage
@@ -20,153 +16,74 @@ In Claude Code, run:
 /reload-plugins
 ```
 
-Open `/mcp` and complete the StoreAdOps browser OAuth flow. Never paste an API
-key, OAuth token, advertising credential, or store credential into a prompt.
-
-Verify the installation:
-
-```bash
-claude plugin details storeadops@advantage
-claude mcp list
-```
-
-## Use
-
-StoreAdOps skills are namespaced under `storeadops`:
-
-- `/storeadops:storeadops-get-started`
-- `/storeadops:storeadops-performance-review`
-- `/storeadops:storeadops-daily-profit-brief`
-- `/storeadops:storeadops-campaign-draft`
-
-Example prompts:
-
-1. `Check which providers and advertising accounts are connected. Do not switch accounts.`
-2. `Review the last seven days of advertising performance and prioritize wasted-spend opportunities. Make no changes.`
-3. `Prepare a paused Meta campaign draft for the selected account. Show me the exact budget, currency, targeting, and creative preview, but do not write anything until I explicitly confirm it.`
-4. `Explain which Microsoft Advertising and TikTok operations my selected accounts support. Do not create report jobs or make changes.`
-
-The live StoreAdOps server remains authoritative for authentication, account
-selection, authorization, validation, confirmation, idempotency, and provider
-writes. The plugin must not silently switch advertising accounts. A change
-requires an exact `prepare_change` preview and explicit confirmation of that
-preview before `execute_change`. New advertising objects are created paused.
-The write path uses durable idempotency and provider readback; a timeout is not
-permission to retry blindly. Report creation may be a separate non-spending
-provider effect and must not be described as an ordinary read.
-
-Data gaps are explicit. Missing revenue, costs, margin, attribution, or currency
-must not be filled with invented figures, and an empty account is not an error
-or proof of production readiness.
-
-## Version 0.6.5 scope
-
-Version 0.6.5 declares the existing public privacy policy explicitly in the
-plugin manifest's `privacyPolicyUrl`, addressing the directory's
-`PRIVACY_URL_MISSING` finding. The policy was already linked in both READMEs;
-its address and content are unchanged. The four skills, ten-tool ads-v3 endpoint,
-permissions, logo, license and submitted OpenAI package are unchanged.
-See [release validation and rollback](docs/releases/0.6.5.md).
-
-Run `python3 -m unittest discover -s tests -v` to check the public package's
-privacy metadata, README fallback, marketplace version and MCP connection.
-
-## Version 0.6.4 scope
-
-Version 0.6.4 follows the reporting-coverage corrections in the ads-v3 server:
-use date-filtered exact Shopify order reports when discovered, keep exact counts
-separate from sampled revenue, distinguish complete rows from a completed day,
-and preserve each provider's timezone and timestamp boundaries. Microsoft report
-approval covers a disclosed account/date/type/job-count batch, not unlimited jobs.
-Onboarding can request the bounded `account.verify` read without treating stored
-connection metadata as a failed connection or live metadata access as write access.
-
-These are three canonical skill updates; the campaign-draft skill, ten tools,
-MCP URL, permissions, logo and license are unchanged. New operations are always
-discovered before use; an older server produces an explicit coverage limitation.
-The submitted OpenAI package is unchanged. See
-[release validation and rollback](docs/releases/0.6.4.md).
-
-## Version 0.6.3 scope
-
-Version 0.6.3 tightens reporting guidance in the daily brief and performance
-review skills: use normalized metric names, explicitly match account-level
-dimensions, and keep unknown timezones or empty-source normalized totals from
-being presented as fully verified exact-period coverage. Embedded rolling trends
-keep their own date coverage instead of inheriting the report's fixed dates.
-It changes no tools,
-endpoints, permissions or execution behavior. Host acceptance must be verified
-separately from package validation.
-
-## Version 0.6.2 scope
-
-Version 0.6.2 adds the website-matching plugin icon, the owner-approved MIT
-license for the public `storeadops/` package only, and Claude web sign-in
-guidance. Its four generated skills and ads-v3 endpoint are unchanged from
-0.6.1. Private server code and account/provider data are not licensed here.
-
-This package migrates the declared endpoint and four core skills to ads-v3.
-The old growth-action-graphs workflow requires V1-only tools and is not bundled
-in the ads-v3 plugin. Its source is retained under `legacy/growth-action-graphs`
-for reference, not loaded as a skill, and not claimed as an ads-v3 capability.
-No server or provider capability is implemented or removed by this package.
-Do not use legacy graph grants or tool names as substitutes for ads-v3 plans.
-
-The four workflows come from the portable canonical skill sources, with a
-Claude-specific namespacing overlay. Version 0.6.3 adds the reporting corrections
-above; it does not replace or amend the previously submitted OpenAI ZIP. They use exact
-discovered operation names and request envelopes, bounded reads, explicit
-permission for provider report jobs, and in-chat confirmation of an exact change
-preview. Missing data, stale account references, unsupported settings and
-uncertain write outcomes are handled explicitly.
-
-GitHub availability, directory acceptance, OAuth connectivity and successful
-Claude conversations are separate checks. Package validation does not establish
-marketplace approval or conversation-level E2E certification. See
-[release validation and limitations](docs/releases/0.6.1.md).
-
-## Data and network access
-
-The plugin makes one declared external connection to
-`https://app.storeadops.ai/mcp/packs/ads-v3`. StoreAdOps accesses only the
-advertising and Shopify accounts the user has connected and authorized. Depending
-on the requested operation, this may include account metadata, campaigns,
-performance metrics, products, inventory and orders, a provider report job, or
-an explicitly confirmed advertising change. This package does not provide
-Shopify mutations, payment actions or autonomous spending.
-
-The plugin ships no hooks, executables, background monitors, telemetry, package
-installers, or credential readers. Browser OAuth is handled by Claude Code and
-StoreAdOps. See the privacy policy below for collection, use, retention, and
-deletion details.
-
-## Troubleshooting
-
-- **Needs authentication:** open `/mcp` and complete StoreAdOps browser OAuth.
-- **Upgrading from 0.5.1:** the MCP resource URL changes to ads-v3. Complete
-  OAuth for the new resource when prompted; an old connection is not proof
-  that the new resource is authorized. Do not paste tokens into configuration.
-- **Wrong or ambiguous account:** stop and select the intended account in
-  StoreAdOps; the plugin must not switch accounts silently.
-- **Write rejected:** inspect the returned issues and live operation contract.
-  A terminal refusal requires a corrected new plan, not replay of a rejected
-  plan. Never turn an uncertain outcome into a fresh-key retry.
-- **Timeout or `outcome_unknown`:** do not retry the write. Read provider state
-  back or reconcile by idempotency key first.
-- **Installation or account support:** contact
-  [support@storeadops.ai](mailto:support@storeadops.ai) or open a GitHub issue
-  that contains no credentials, account identifiers, or customer data.
-
-## Update
+For an existing installation:
 
 ```bash
 claude plugin marketplace update advantage
 claude plugin update storeadops@advantage --scope user
 ```
 
-Restart Claude Code or run `/reload-plugins`, then recheck `/mcp`.
+Restart Claude Code or run `/reload-plugins`, then check `/mcp`. Complete browser
+OAuth if requested; never paste a credential into a prompt. The MCP URL remains
+`https://app.storeadops.ai/mcp/packs/ads-v3`. OAuth connectivity, package
+installation and successful conversations are separate checks.
 
-## Remove
+## Four workflows
+
+- `/storeadops:storeadops-get-started`: verify selected accounts and available actions.
+- `/storeadops:storeadops-performance-review`: explain performance with bounded evidence.
+- `/storeadops:storeadops-daily-profit-brief`: dated store/ads coverage with honest profit gaps.
+- `/storeadops:storeadops-campaign-draft`: prepare exact previews; execute only after explicit confirmation.
+
+Try: "Check which accounts are connected. Do not switch accounts."
+Or: "Review the last completed week's performance. No changes or report jobs."
+For a preview: "Prepare a paused Google Shopping proposal. Ask for missing
+inputs; do not execute."
+
+## Version 0.6.5
+
+All four skills now use the live named-tool contract. The generic dispatchers
+are retired; readiness uses `get_capabilities(tool_name=...)`, not hidden
+operation discovery. Reports start only through `start_performance_report`
+with approval for the exact batch; `get_report` only polls existing jobs.
+Preparation uses a matching `prepare_*` tool; its returned named execution tool
+requires the unchanged typed `change`, plan, exact effects, explicit
+confirmation and durable idempotency. A preview is not a provider write.
+
+This release also declares the existing privacy-policy URL to address the
+directory's metadata finding. The endpoint, OAuth configuration, logo and
+license are unchanged. No backend deployment or OpenAI submission is included.
+See [validation, provenance and rollback](docs/releases/0.6.5.md). Older release
+notes are historical and do not describe the current tool contract.
+
+## Boundaries
+
+No silent account switching, invented identifiers, autonomous spending or
+Shopify mutations. New delivery objects in the draft workflow remain paused.
+Activation, resuming or budget increases require a separate explicit request
+and their own exact preview/confirmation. An uncertain write is reconciled with
+its original plan/key, never blindly retried with a new key.
+
+Report-job creation is a non-spending provider effect, not an ordinary read.
+Incomplete pagination, unknown timezone, in-progress days, missing costs and
+incompatible attribution/currency remain explicit gaps. Revenue is not profit.
+Live server schemas and authorization always take precedence over this guidance.
+
+## Data and network access
+
+The package declares only the production StoreAdOps MCP connection above.
+StoreAdOps accesses the advertising and Shopify accounts the user connected
+and authorized, for the requested reads, approved report jobs or confirmed
+changes. The package ships no hooks, executables, background monitors,
+telemetry, installers or credential readers. Repository tests and release
+utilities are outside the installed `storeadops/` package.
+
+## Support and removal
+
+For authentication, use `/mcp`; for wrong/ambiguous selection, choose the intended
+account in StoreAdOps. Do not reconnect to bypass a gate. Report sanitized errors
+to [support@storeadops.ai](mailto:support@storeadops.ai); never include credentials,
+opaque references or customer data in a public issue.
 
 ```bash
 claude plugin uninstall storeadops@advantage --scope user
@@ -180,5 +97,6 @@ claude plugin marketplace remove advantage --scope user
 - [Support](https://app.storeadops.ai/support)
 - [Security](https://app.storeadops.ai/security)
 
-Report security vulnerabilities privately through this repository's GitHub
-Security Advisories.
+Report vulnerabilities privately through GitHub Security Advisories. The public
+plugin is MIT-licensed; private backend code and provider/account data are not
+licensed by this package.

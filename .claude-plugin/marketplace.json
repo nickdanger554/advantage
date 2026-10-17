@@ -9,7 +9,7 @@
     {
       "name": "storeadops",
       "source": "./storeadops",
-      "description": "Review connected advertising data and prepare exact, paused change previews through the ten-tool StoreAdOps ads-v3 interface. Provider access depends on account readiness; Shopify access is read-only.",
+      "description": "Review connected advertising data and prepare exact, paused change previews through named StoreAdOps ads-v3 tools. Provider access depends on account readiness; Shopify access is read-only.",
       "version": "0.6.5",
       "author": {
         "name": "StoreAdOps",
