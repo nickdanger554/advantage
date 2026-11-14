@@ -1,5 +1,7 @@
 # StoreAdOps for Claude
 
+<img src="assets/icon.png" alt="StoreAdOps" width="64" height="64" />
+
 StoreAdOps connects Claude to the production ads-v3 named-tool interface.
 Four skills cover selected-account setup, performance review, daily profit
 briefs and exact campaign-change previews. Google Ads, Meta, Microsoft

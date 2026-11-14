@@ -1,5 +1,7 @@
 # Advantage
 
+<img src="storeadops/assets/icon.png" alt="StoreAdOps" width="64" height="64" />
+
 Public Claude Code plugin marketplace for StoreAdOps.
 
 The `storeadops` plugin connects Claude Code to production StoreAdOps ads-v3
@@ -40,21 +42,11 @@ Or: "Review the last completed week's performance. No changes or report jobs."
 For a preview: "Prepare a paused Google Shopping proposal. Ask for missing
 inputs; do not execute."
 
-## Version 0.6.5
+## Version 0.6.6
 
-All four skills now use the live named-tool contract. The generic dispatchers
-are retired; readiness uses `get_capabilities(tool_name=...)`, not hidden
-operation discovery. Reports start only through `start_performance_report`
-with approval for the exact batch; `get_report` only polls existing jobs.
-Preparation uses a matching `prepare_*` tool; its returned named execution tool
-requires the unchanged typed `change`, plan, exact effects, explicit
-confirmation and durable idempotency. A preview is not a provider write.
-
-This release also declares the existing privacy-policy URL to address the
-directory's metadata finding. The endpoint, OAuth configuration, logo and
-license are unchanged. No backend deployment or OpenAI submission is included.
-See [validation, provenance and rollback](docs/releases/0.6.5.md). Older release
-notes are historical and do not describe the current tool contract.
+Adds the approved Emerald Amplify logo to the package and its README pages.
+The four skills, production endpoint, permissions and OAuth configuration are unchanged.
+See [validation and rollback](docs/releases/0.6.6.md).
 
 ## Boundaries
 
